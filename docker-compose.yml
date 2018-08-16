@@ -1,0 +1,57 @@
+version: "3.4"
+services:
+  core:
+    build: ./core/
+    image: ansible-lab-core
+  master:
+    build: ./master/
+    image: ansible-lab-master
+    container_name: ansible-master
+    hostname: ansible-master
+    networks:
+      ansible:
+        aliases:
+          - master
+    volumes:
+      - type: bind
+        source: ./ansible
+        target: /opt/ansible
+      - type: volume
+        source: ansible-sshkeys
+        target: /mnt/ansible-sshkeys
+  node1:
+    build: ./node/
+    image: ansible-lab-node
+    container_name: ansible-node1
+    hostname: ansible-node1
+    networks:
+      ansible:
+        aliases:
+          - node1
+    volumes:
+      - type: volume
+        source: ansible-sshkeys
+        target: /mnt/ansible-sshkeys
+        read_only: true
+  node2:
+    image: ansible-lab-node
+    container_name: ansible-node2
+    hostname: ansible-node2
+    networks:
+      ansible:
+        aliases:
+          - node2
+    volumes:
+      - type: volume
+        source: ansible-sshkeys
+        target: /mnt/ansible-sshkeys
+        read_only: true
+
+networks:
+  ansible:
+    driver: bridge
+
+volumes:
+  ansible-sshkeys:
+    driver: local
+    name: ansible-sshkeys
