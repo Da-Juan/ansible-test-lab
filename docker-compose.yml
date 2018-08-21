@@ -21,6 +21,8 @@ services:
       - type: volume
         source: ansible-sshkeys
         target: /mnt/ansible-sshkeys
+    depends_on:
+      - core
   node1:
     build: ./node/
     image: ansible-lab-node
@@ -35,6 +37,8 @@ services:
         source: ansible-sshkeys
         target: /mnt/ansible-sshkeys
         read_only: true
+    depends_on:
+      - core
   node2:
     image: ansible-lab-node
     container_name: ansible-node2
@@ -48,6 +52,8 @@ services:
         source: ansible-sshkeys
         target: /mnt/ansible-sshkeys
         read_only: true
+    depends_on:
+      - node1
 
 networks:
   ansible:
