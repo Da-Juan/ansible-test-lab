@@ -3,6 +3,8 @@ services:
   core:
     build: ./core/
     image: ansible-lab-core
+    networks:
+      ansible:
   master:
     build: ./master/
     image: ansible-lab-master
