@@ -1,3 +1,4 @@
 ansible/*
 !ansible/inventory
 !ansible/test_ping.yml
+docker-compose.override.yml

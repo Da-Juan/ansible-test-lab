@@ -41,3 +41,21 @@ docker-compose down --rmi all -v
 ## Adding your Ansible files to the lab
 
 Simply put your files in the `ansible` directory.
+
+## Advanced configuration
+
+To override Docker settings, create a file named `docker-compose.override.yml` at the root of the repository.
+
+The following example shows how to customize the lab's network IP range:
+
+```YAML
+version: "3.5"
+
+networks:
+  ansible:
+    name: ansible
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+```
