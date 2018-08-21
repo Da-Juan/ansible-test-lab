@@ -6,7 +6,7 @@ It will start 1 Ansible master and 2 target nodes.
 
 ## Dependencies
 
-To run this lab you'll need Docker(17.09.0+) and Docker compose.
+To run this lab you'll need Docker(17.12.0+) and Docker compose.
 
 ## Running the lab
 
