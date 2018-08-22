@@ -21,8 +21,10 @@ docker-compose up --detach --build
 To test everything's went right run:
 
 ```
-docker exec ansible-master ansible-playbook -i /opt/ansible/inventory /opt/ansible/test_ping.yml
+docker exec -t ansible-master ansible-playbook /opt/ansible/test_ping.yml
 ```
+
+Note: the `-t` option is useful to get colors from Ansible output.
 
 ### Stopping the lab
 
@@ -35,7 +37,7 @@ docker-compose stop
 After stopping the lab, if you want to destroy it, run:
 
 ```
-docker-compose down --rmi all -v
+docker-compose down --rmi all --volumes
 ```
 
 ## Adding your Ansible files to the lab
