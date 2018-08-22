@@ -1,5 +1,7 @@
 FROM ansible-lab-core
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y \
         python-pip python-setuptools \
