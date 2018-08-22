@@ -15,7 +15,7 @@ To run this lab you'll need Docker(17.12.0+) and Docker compose.
 To start the lab use the following command at the root of the repository.
 
 ```
-docker-compose up --detach --build
+UID=$(id -u) GID=$(id -g) docker-compose up --detach --build
 ```
 
 To test everything's went right run:

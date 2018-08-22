@@ -6,10 +6,15 @@ services:
     networks:
       ansible:
   master:
-    build: ./master/
+    build:
+      context: ./master/
+      args:
+        UID: ${UID}
+        GID: ${GID}
     image: ansible-lab-master
     container_name: ansible-master
     hostname: ansible-master
+    user: ${UID}:${GID}
     networks:
       ansible:
         aliases:
