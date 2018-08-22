@@ -40,9 +40,17 @@ After stopping the lab, if you want to destroy it, run:
 docker-compose down --rmi all --volumes
 ```
 
-## Adding your Ansible files to the lab
+## Using Ansible
+
+### Adding your Ansible files to the lab
 
 Simply put your files in the `ansible` directory.
+
+### Create new role
+
+```
+docker exec ansible-master ansible-galaxy init --init-path=/opt/ansible/roles <role name>
+```
 
 ## Advanced configuration
 
