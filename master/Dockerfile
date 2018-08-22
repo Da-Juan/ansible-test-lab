@@ -4,7 +4,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y \
-        python-pip python-setuptools \
+        python-pip python-setuptools python-wheel \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install ansible
