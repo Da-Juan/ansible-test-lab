@@ -12,8 +12,15 @@ To run this lab you'll need Docker(17.12.0+) and Docker compose.
 
 ### Running the lab
 
-To start the lab use the following command at the root of the repository.
+To start the lab use the following commands at the root of the repository.
 
+```
+# To setup .env file and build the images
+./setup.sh
+# Then
+docker-compose up
+```
+or if you prefer a one-liner
 ```
 UID=$(id -u) GID=$(id -g) docker-compose up --detach --build
 ```

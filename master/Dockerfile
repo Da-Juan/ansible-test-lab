@@ -9,10 +9,10 @@ RUN useradd -d /home/ansible -m -g ansible -u ${UID} -s /bin/bash ansible
 
 RUN apt-get update \
     && apt-get install --no-install-recommends --no-install-suggests -y \
-        python-pip python-setuptools python-wheel \
+        python3-pip python3-setuptools python3-wheel \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install ansible
+RUN pip3 install ansible
 
 RUN mkdir /mnt/ansible-sshkeys \
     && chown ansible: /mnt/ansible-sshkeys
